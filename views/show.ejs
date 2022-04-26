@@ -1,0 +1,30 @@
+<% layout('layouts/boilerplate') %>
+
+
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="card mb-3">
+        <img src="<%= myCampGround.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= myCampGround.title %>
+          </h5>
+          <p class="card-text">
+            <%= myCampGround.description %>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <%= myCampGround.location %>
+          </li>
+          <li class="list-group-item">£<%= myCampGround.price %>/night</li>
+        </ul>
+        <div class="card-body">
+          <a href="/campgrounds/<%=myCampGround._id%>/edit" class="card-link btn btn-warning">Edit</a>
+          <form class="d-inline" action="/campgrounds/<%=myCampGround._id%>?_method=delete" method="POST">
+            <button class="btn btn-warning">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

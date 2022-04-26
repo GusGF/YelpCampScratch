@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+  <h1>Edit Camp Ground</h1>
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <form action="/campgrounds/saveEdit/<%= campground._id %>?_method=PUT" method="post" novalidate
+        class="needs-validation">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title: </label>
+          <input class="form-control" type="text" id="title" value="<%= campground.title %>" name=cg[title] required>
+          <div class="invalid-feedback">Idiot! Fill it in properly!</div>
+          <div class="valid-feedback">Looks great!</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="location">Location: </label>
+          <input class="form-control" type="text" id="location" value="<%= campground.location %>" name=cg[location]
+            required>
+          <div class="invalid-feedback">Idiot! Fill it in properly!</div>
+          <div class="valid-feedback">Looks great!</div>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name=cg[price] id="price"
+            value="<%= campground.price %>" required>
+          <span class="input-group-text">.00</span>
+          <div class="invalid-feedback">Idiot! Fill it in properly!</div>
+          <div class="valid-feedback">Looks great!</div>
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="description">Description: </label>
+          <textarea class="form-control" type="text" id="description"
+            name=cg[description]> <%= campground.description %> required</textarea>
+          <div class="invalid-feedback">Idiot! Fill it in properly!</div>
+          <div class="valid-feedback">Looks great!</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="image">Image: </label>
+          <input class="form-control" type="text" id="image" name=cg[image] value="<%= campground.image %>">
+        </div>
+        <button class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
